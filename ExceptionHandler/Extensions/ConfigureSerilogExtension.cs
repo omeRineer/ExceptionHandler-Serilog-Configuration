@@ -2,6 +2,7 @@
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
+using Serilog.Sinks.SystemConsole.Themes;
 using System.Collections.ObjectModel;
 
 namespace ExceptionHandler.Extensions
@@ -12,7 +13,8 @@ namespace ExceptionHandler.Extensions
                                             WriteTo[] loggers = null,
                                             string connectionString = null)
         {
-            var loggerConfiguration = new LoggerConfiguration();
+            var loggerConfiguration = new LoggerConfiguration()
+                .MinimumLevel.Information();
 
             loggerConfiguration = WriteToOptions(loggerConfiguration, loggers, connectionString);
 
@@ -25,14 +27,17 @@ namespace ExceptionHandler.Extensions
         {
             loggers = loggers ?? new WriteTo[]
             {
-                WriteTo.Debug
+                WriteTo.Console
             };
 
             foreach (var logger in loggers)
             {
                 loggerConfiguration = logger switch
                 {
-                    WriteTo.Console => loggerConfiguration.WriteTo.Console(),
+                    WriteTo.Console => loggerConfiguration.WriteTo.Console
+                        (
+                            restrictedToMinimumLevel: LogEventLevel.Information
+                        ),
 
                     WriteTo.Debug => loggerConfiguration.WriteTo.Debug(),
 

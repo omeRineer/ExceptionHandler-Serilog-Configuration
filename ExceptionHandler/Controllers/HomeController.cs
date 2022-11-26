@@ -9,12 +9,40 @@ namespace ExceptionHandler.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Test()
+        [HttpGet("validationexception")]
+        public IActionResult ValidationException()
         {
-            var result = new Result.Result { Success = true, Message = "True" };
-            throw new Exception();
-            return Ok(result);
+            throw new ValidationException();
+        }
+
+        [HttpGet("argumentnullexception")]
+        public IActionResult ArgumentNullException()
+        {
+            throw new ArgumentNullException();
+        }
+
+        [HttpGet("nullreferanceexception")]
+        public IActionResult NullReferanceException()
+        {
+            throw new NullReferenceException();
+        }
+
+        [HttpGet("aggregateexception")]
+        public IActionResult AggregateException()
+        {
+            throw new AggregateException();
+        }
+
+        [HttpGet("applicationexception")]
+        public IActionResult ApplicationException()
+        {
+            throw new ApplicationException();
+        }
+
+        [HttpGet("argumentexception")]
+        public IActionResult ArgumentException()
+        {
+            throw new ArgumentException();
         }
     }
 }

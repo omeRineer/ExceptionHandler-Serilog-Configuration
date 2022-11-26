@@ -3,6 +3,7 @@ using ExceptionHandler.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Serilog;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace ExceptionHandler.Middlewares
 
             logMessage += exception switch
             {
-                ValidationException validationException => $"Errors : {validationException.Errors}",
+                ValidationException validationException => $"Errors : {validationException.Errors} \n",
                 _ => ""
             };
 
