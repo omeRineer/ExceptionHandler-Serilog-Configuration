@@ -1,0 +1,11 @@
+26-11-2022 03:18:20 [ERR] : [ValidationException] 
+ Message : Exception of type 'ExceptionHandler.Exceptions.ValidationException' was thrown. 
+ Errors :  
+26-11-2022 03:18:23 [ERR] : [ValidationException] 
+ Message : Exception of type 'ExceptionHandler.Exceptions.ValidationException' was thrown. 
+ Errors :  
+26-11-2022 03:20:15 [ERR] : [Exception] 
+ Message : Exception of type 'System.Exception' was thrown. 
+  
+26-11-2022 03:21:20 [FTL] : Application startup exception 
+26-11-2022 03:21:51 [FTL] : Application startup exception 
