@@ -35,7 +35,7 @@ namespace ExceptionHandler.Middlewares
 
         private async Task ExceptionHandler(HttpContext httpContext, Exception exception)
         {
-            httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            httpContext.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
             httpContext.Response.ContentType = "System server error";
 
 

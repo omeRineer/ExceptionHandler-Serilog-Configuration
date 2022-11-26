@@ -7,12 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.ConfigureSerilog
     (
-        loggers:new WriteTo[]
-        {
-            WriteTo.File,
-            WriteTo.Console,
-            WriteTo.DataBase
-        },
+        
         connectionString: "Server=(localdb)\\MSSQLLocalDB;Database=SerilogTestDb;Trusted_Connection=True;"
     );
 

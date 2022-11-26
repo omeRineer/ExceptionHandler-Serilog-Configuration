@@ -36,10 +36,9 @@ namespace ExceptionHandler.Extensions
 
                     WriteTo.Debug => loggerConfiguration.WriteTo.Debug(),
 
-                    WriteTo.File => loggerConfiguration.WriteTo.File
+                    WriteTo.File => loggerConfiguration.WriteTo.RollingFile
                         (
-                            path: $"./wwwroot/LogEvents/Log.txt",
-                            rollingInterval: RollingInterval.Day,
+                            pathFormat: "./wwwroot/LogEvents/{Date}-Log.txt",
                             restrictedToMinimumLevel: LogEventLevel.Error,
                             outputTemplate: "{Timestamp:dd-MM-yyyy HH:mm:ss} [{Level:u3}] : {Message:lj} {NewLine:2}"
                         ),
